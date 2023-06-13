@@ -96,7 +96,7 @@ def search(root: Node, value: int) -> Node:
 # NOT given to students
 def insert(root: Node, value: int) -> Node:
     if root is None: # TODO
-        root.value = value
+        root = Node(value)
         return root # TODO
     else:
         if value < root.value:
