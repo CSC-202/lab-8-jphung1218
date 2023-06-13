@@ -99,16 +99,16 @@ def insert(root: Node, value: int) -> Node:
         root = Node(value)
         return root # TODO
     else:
-        if value < root.value:
-            insert(root.left, value)
-        elif value > root.value:
-            insert(root.right, value)
+        if value < root.value and root.left is None:
+            root.left = Node(value)
+        elif value > root.value and root.right is None:
+            root.right = Node(value)
         else:
-            if root.left is None:
-                root.left = Node(value)
-            elif root.right is None:
-                root.right = Node(value)
-    return root
+            if value < root.value and root.left is not None:
+                insert(root.left, value)
+            elif value > root.value and root.right is not None:
+                insert(root.right, value)
+    return root #switch the ifelif & else statemenst??
 
 
 # given to students
